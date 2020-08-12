@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+
+{% block body %}
+	<div class="card mx-auto" style="width: 18rem;">
+		<div class="card-header">
+      <img class="card-img-top" src="{% static "images/kjsieit-logo.svg" %}" alt="Card image cap">
+      <p></p>
+		<h4>Login</h4>
+		</div>
+		<div class="card-body">
+        <form action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+
+          <div class="form-group">
+            <div class="Ivalid-feedback">
+            {{ form.errors }}
+            </div>
+            <label for="username">Somaiya ID</label>
+						<input type ="text" name="username" placeholder="Enter Username">
+
+            <!-- {% render_field form.Somaiya_id class="form-control" placeholder="Somaiya ID" step="1" %} -->
+
+
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+						<input type ="password" name="password">
+            <!-- {% render_field form.password class="form-control" placeholder="Password" %} -->
+          </div>
+          <input type="submit" value="Login" class="btn btn-primary" />
+        </form>
+			</div>
+		</div>
+{% endblock %}

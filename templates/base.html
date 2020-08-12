@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		.btn{
+	margin-left:10px;
+	}
+  input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top ">
+	<div class="container">
+		<ul class="nav navbar-nav">
+			<li><a class="navbar-brand" href="{% url 'index' %}">KJ Somaiya Canteen</a></li>
+			<li><a href="{% url 'admin:index' %}" class="btn btn-outline-light">Admin</a></li>
+		</ul>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav mr-auto">
+		<!-- <li class="nav-item active">
+			<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">My Profile</a>
+		</li> -->
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="{% url 'signup' %}" class="btn btn-outline-light">Sign Up</a></li>
+		{%if user.is_authenticated %}
+		<li><a href="{% url 'logout' %}" class="btn btn-outline-light">Logout</a></li>
+		{% else %}
+		<li><a href="{% url 'login' %}" class="btn btn-outline-light">Login</a></li>
+		{% endif %}
+		<!-- {% block nav_right %} -->
+		<!-- buttons to the right -->
+		<!-- {% endblock %} -->
+	</ul>
+</div>
+</nav>
+<br />
+<br />
+<div class="container">
+  {% block body %}
+
+  {% endblock %}
+</div>
+  </body>
+</html>
